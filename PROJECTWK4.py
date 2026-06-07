@@ -1,5 +1,7 @@
 from datetime import datetime
 
+path = (r"C:\PythonFiles\ZooData.csv")
+
 # This application displays a spreadsheet automation menu
 # and converts temperature data from Fahrenheit to Celsius.
 
@@ -19,7 +21,7 @@ def convertData(fahrenheit):
 
 
 # This function appends comma-separated data to a csv file.
-def insertData(path, data):
+def insertData(data, path = r"C:\PythonFiles\ZooData.csv"):
     try:
         file = open(path, "a")
         file.write(data + "\n")
@@ -54,7 +56,7 @@ def getInput():
 
             data = date + "," + str(temperature) + "," + str(convertedValue)
 
-            saved = insertData("ZooData.csv", data)
+            saved = insertData(data, "ZooData.csv")
 
             if saved:
                 print("The following data was saved at", datetime.now(), ":", data)
